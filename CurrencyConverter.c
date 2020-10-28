@@ -37,7 +37,7 @@ int print_currency(char* amount)
     {
       separated_data = strtok(NULL, separators);
       float converted_currency = atof(separated_data) * rupees;
-      printf("%.2f rupess of INR is %.2f dollars of USD.", rupees, converted_currency);
+      printf("%.2f INR is %.2f USD.", rupees, converted_currency);
     }
     separated_data = strtok(NULL, separators);
   }
