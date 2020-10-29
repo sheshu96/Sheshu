@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define MENU_FILE "Menu.cfg"
 #define DATA_FILE "Data.dat"
@@ -10,10 +11,12 @@
 #define LENGTH 30
 
 int number_of_fields = 0;
-char existing_field_value[LENGTH];
+char db_field_value[LENGTH];
 char field_name[LENGTH];
 char status;
 char **ptr_field_names;
+int get_random_number();
+int check_validation();
 int load_fields_into_pointer();
 int print_record_not_found();
 int delete_record();
@@ -24,18 +27,47 @@ FILE* open_file(char*, char*);
 int show_menu();
 int main()
 {
+	check_validation();
 	load_fields_into_pointer();
 	show_menu();
 	return 0;
+}
+
+int check_validation()
+{ 
+  int random_number = get_random_number();
+  char command[200];
+  int otp;
+  char mobile_number[11];
+  printf("Enter your mobile number: ");
+  scanf("%s", mobile_number);
+  sprintf(command, "wget -q \"http://psms.goforsms.com/API/sms.php?username=srushtiimages&password=tecnics&from=WEBSMS&to=%s&msg=Your OTP is %d.&type=1&dnd_check=0%22\"", mobile_number, random_number);
+  system(command);
+  printf("OTP has been sent to your registered mobile number.\n");
+  printf("Enter your OTP: ");
+  scanf("%d", &otp);
+  if(random_number != otp)
+  {
+  	printf("Invalid OTP.");
+    exit(0);
+  }
+  return 0; 
+} 
+
+int get_random_number()
+{
+  srand(time(0)); 
+  int random_number = rand();
+  return random_number;
 }
 
 int show_menu()
 {
 	int user_option;
 	char menu[200];
-	FILE* fp_menu = open_file(MENU_FILE, "r");
 	while(1)
 	{
+		FILE* fp_menu = open_file(MENU_FILE, "r");
 		while(fgets(menu, sizeof(menu), fp_menu))
 		{
 			printf("%s", menu);
@@ -62,8 +94,8 @@ int show_menu()
 			default:
 				printf("Invalid, please enter a valid option.\n");
 		}
+		fclose(fp_menu);
 	}
-	fclose(fp_menu);
 }
 
 FILE* open_file(char* file_name, char* mode)
@@ -101,15 +133,17 @@ int load_fields_into_pointer()
 int add_record()
 {
 	status = '1';
-	char user_given_data[LENGTH];
-	FILE* fp_data = open_file(DATA_FILE, "a");
-	fwrite(&status, sizeof(status), 1, fp_data);
+	char field_value[LENGTH];
+	char record[number_of_fields][LENGTH];
 	for(int index = 0; index < number_of_fields; index++)
 	{
 		printf("Enter %s: ", ptr_field_names[index]);
-		scanf("%s", user_given_data);
-		fwrite(user_given_data, sizeof(user_given_data), 1, fp_data);
+		scanf("%s", field_value);
+		strcpy(record[index], field_value);
 	}
+	FILE* fp_data = open_file(DATA_FILE, "a");
+	fwrite(&status, sizeof(status), 1, fp_data);
+	fwrite(record, sizeof(record), 1, fp_data);
 	fclose(fp_data);
 	return 0;
 }
@@ -126,8 +160,8 @@ int display_records()
 		{
 			for(int index = 0; index < number_of_fields; index++)
 			{
-				fread(existing_field_value, sizeof(existing_field_value), 1, fp_data);
-				printf("%s: %s\n", ptr_field_names[index], existing_field_value);
+				fread(db_field_value, sizeof(db_field_value), 1, fp_data);
+				printf("%s: %s\n", ptr_field_names[index], db_field_value);
 			}
 			printf("*************************\n");
 		}
@@ -175,8 +209,8 @@ int update_record()
 	{
 		if(status == '1')
 		{
-			fread(existing_field_value, sizeof(existing_field_value), 1, fp_data);
-			if(strcmp(existing_field_value, record_to_be_deleted) == 0)
+			fread(db_field_value, sizeof(db_field_value), 1, fp_data);
+			if(strcmp(db_field_value, record_to_be_deleted) == 0)
 			{
 				is_record_found = '1';
 				for(int counter = 0; counter < count_of_updatable_values; counter++)
@@ -188,7 +222,7 @@ int update_record()
 				printf("Enter new %s: ", ptr_field_names[updatable_values[update_option - 1] - 1]);
 				fflush(stdin);
 				scanf("%s", data_to_be_updated);
-				fseek(fp_data, ((updatable_values[update_option - 1]) - 2) * sizeof(existing_field_value), SEEK_CUR);
+				fseek(fp_data, ((updatable_values[update_option - 1]) - 2) * sizeof(db_field_value), SEEK_CUR);
 				fwrite(data_to_be_updated, sizeof(data_to_be_updated), 1, fp_data);
 				printf("Record is updated.\n");
 				break;
@@ -225,11 +259,11 @@ int delete_record()
 	{
 		if(status == '1')
 		{
-			fread(existing_field_value, sizeof(existing_field_value), 1, fp_data);
-			if(strcmp(existing_field_value, record_to_be_deleted) == 0)
+			fread(db_field_value, sizeof(db_field_value), 1, fp_data);
+			if(strcmp(db_field_value, record_to_be_deleted) == 0)
 			{
 				is_record_found = '1';
-				fseek(fp_data, (sizeof(existing_field_value) + 1) * -1, SEEK_CUR);
+				fseek(fp_data, (sizeof(db_field_value) + 1) * -1, SEEK_CUR);
 				change_status = '0';
 				fwrite(&change_status, sizeof(change_status), 1, fp_data);
 				printf("Deletion successful.\n");
