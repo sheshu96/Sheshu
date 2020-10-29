@@ -38,7 +38,7 @@ int check_validation()
   int random_number = get_random_number();
   char command[200];
   int otp;
-  char mobile_number[11];
+  char mobile_number[10];
   printf("Enter your mobile number: ");
   scanf("%s", mobile_number);
   sprintf(command, "wget -q \"http://psms.goforsms.com/API/sms.php?username=srushtiimages&password=tecnics&from=WEBSMS&to=%s&msg=Your OTP is %d.&type=1&dnd_check=0%22\"", mobile_number, random_number);
