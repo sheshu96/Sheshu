@@ -34,8 +34,8 @@ class XML implements iFramework
 			dbf = DocumentBuilderFactory.newInstance();
 			db = dbf.newDocumentBuilder();
 			document = db.parse(file);
-            document.getDocumentElement().normalize();
-            fieldNames = getFieldNames();
+            		document.getDocumentElement().normalize();
+            		fieldNames = getFieldNames();
 		}
 		catch(Exception e)
 		{
@@ -207,23 +207,23 @@ class XML implements iFramework
     	String data = "";
     	try 
     	{
-			File myObj = new File(fileName);
-			Scanner scanner = new Scanner(myObj);  
-			while (scanner.hasNextLine()) 
-			{
-				data = scanner.nextLine();
-			}
-			scanner.close();
-		}
-		catch (Exception e)
+		File myObj = new File(fileName);
+		Scanner scanner = new Scanner(myObj);  
+		while (scanner.hasNextLine()) 
 		{
-			System.out.println("An error occurred.");
+			data = scanner.nextLine();
 		}
-		return data.split(", ");
+		scanner.close();
+	}
+	catch (Exception e)
+	{
+		System.out.println("An error occurred.");
+	}
+	return data.split(", ");
 	}
 
 	public String[] getFieldNames() throws Exception
-    {
+    	{
     	return getDataFromFile("FieldNames");
 	}
 
