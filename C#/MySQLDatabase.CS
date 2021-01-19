@@ -10,8 +10,8 @@ namespace MySQLlib
 		public static MySqlConnection ConnectToDB(String Host, String Database, String UserId, String Password)
 	    {
 	        String ConnString = "Server = " + Host + "; Database = " + Database + "; User Id = " + UserId + "; Password = " + Password;
-            MySqlConnection conn = new MySqlConnection(ConnString);
-            return conn;
+            	MySqlConnection conn = new MySqlConnection(ConnString);
+            	return conn;
 	    }
 	}
 }
