@@ -1,13 +1,3 @@
-
-burgulasathwika786@hotmail.com
-Reset@54321
-
-Installed & set path of java compiler --> Java language
-Installed & set path of gcc compiler --> C language
-Installed & set path of python --> Python language
-Installed & set path of Go compiler --> Go language
-Set path of csc and vbc --> C#.Net & Visual basic
-
 commands to execute programs:
 
 Python: 
@@ -31,3 +21,11 @@ go run filename.go
 Java:
 javac filename.java --> Compilation
 java classname --> Execution
+
+NodeJS:
+node filename
+
+NestJS:
+npm start
+(or)
+npm run start:dev
