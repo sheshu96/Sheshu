@@ -3,6 +3,11 @@ commands to execute programs:
 Python: 
 python filename.py
 
+Python(Linux):
+sudo apt install python
+python3 filename.py
+pip3 modulename
+
 C: 
 gcc filename.c -o executeablefilename.exe --> Compilation
 executeablefilename.exe --> Execution
@@ -22,10 +27,26 @@ Java:
 javac filename.java --> Compilation
 java classname --> Execution
 
-NodeJS:
+Node:
+Create commands:
+npm i express-generator
+npx express --view=ejs sample
+Run commands:
 node filename
+npx nodemon filename
 
-NestJS:
+Nest:
+Create commands:
+sudo npm i -g @nestjs/cli
+nest new project-name
+Run commands:
 npm start
-(or)
 npm run start:dev
+
+nest g co name
+nest g s name
+nest g mo name
+
+React:
+npm install -g create-react-app
+npx create-react-app projectname
