@@ -27,7 +27,7 @@ Java:
 javac filename.java --> Compilation
 java classname --> Execution
 
-Node:
+NodeJS:
 Create commands:
 npm i express-generator
 npx express --view=ejs sample
@@ -35,7 +35,7 @@ Run commands:
 node filename
 npx nodemon filename
 
-Nest:
+NestJS:
 Create commands:
 sudo npm i -g @nestjs/cli
 nest new project-name
@@ -47,6 +47,6 @@ nest g co name
 nest g s name
 nest g mo name
 
-React:
+ReactJS:
 npm install -g create-react-app
 npx create-react-app projectname
