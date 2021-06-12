@@ -1,0 +1,13 @@
+Coinbox-wallet server details:
+ssh root@159.65.2.53
+pwd:ddKoin%c2021.com
+
+User: DDKoin.com
+Password: VnYKV8a32hzSHZFh
+
+Coinbox-wallet database details:
+Host:192.46.215.173
+Port:1433
+DB-name: CoinBoxWalletDev
+Username: CoinBoxWallet
+Password: CoinBoxWallet$2021
