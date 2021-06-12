@@ -1,0 +1,30 @@
+Server setup
+
+1. Open server
+	ssh root@{ip}
+	password
+2. Add user
+	adduser {username} (or) adduser {username} --force-badname
+	password
+	usermod -aG sudo {username}
+3. Enter into user
+	su – {username}
+4. Install ngnix
+	sudo apt update
+	sudo apt install ngnix
+5. Install the required environment
+6. Clone the code into server from GitLab
+7. To open the files
+	sudo nano {filename}
+8. Restart ngnix
+9. Allow ports
+	sudo ufw allow {port}
+10. Do reverse proxy – open proxy file of ngnix
+	sudo nano /etc/nginx/sites-enabled/default
+	10.1. Add code
+		location /{endpoint} {
+			proxy_pass http://localhost:{port};
+	        	}
+	
+
+	

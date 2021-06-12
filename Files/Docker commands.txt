@@ -1,0 +1,56 @@
+DOCKER COMMANDS:
+
+Commands to install Docker in Linux: https://docs.docker.com/engine/install/ubuntu/
+
+docker search centos --> To search images named centos.
+docker run centos --> It runs the centos file, if it is not present then it downloads the centos image file.
+docker ps --> It displays all running files in Docker.
+docker ps -a --> It displays all files curretly running and previously run files in Docker.
+docker images --> It displays all downloaded images in Docker.
+docker run -d centos --> To run the file.
+docker rm containerId --> To remove container from Docker.
+docker rmi imagename --> To remove image from Docker.
+docker pull image --> To download the image.
+docker run -it centos --> Enters into respective container.
+docker exec -it containerId sh --> Enter into command shell.
+exit --> Exit form the container.
+docker run -it centos /bin/sh --> Enter into shell container.
+cat /etc/*release* --> To get the container details.
+docker run centos /etc/hostname --> It displays the hostname of respective container.
+docker run centos ip a --> It displays ip of respective container in Docker.
+docker run jenkins --> It runs the jenkins file, if it is not present then it downloads the jenkins image file.
+docker run -p 80:8080 jenkins --> Assigns a port number to jenkins in docker.
+docker start -a containerId --> To start a container.
+docker logs containerId --> To know what it is performing.
+docker stop containerId --> To stop the container.
+docker kill containerId --> To kill container.
+docker run -it --name containerName imageName --> To set the name for a Container.
+docker inspect containerName --> To get all the info of a Container.
+docker inspect containerName | grep -i Ipaddress --> To get Ipaddress of the Container.
+
+To create docker image:
+mkdir Docker --> To create directory named Docker.
+cd Docker --> To enter into Docker directory.
+nano Dockerfile --> To create a file and open it.
+After opening the file, we have to type the commands which we have to import when a program to execute.
+
+Basic format inside the file.
+{
+	# Base image
+	FROM node:alpine
+	
+	#Copy denpendent files
+	COPY ./ ./
+
+	#Install dependencies
+	npm install
+
+	#Startup command
+	CMD [“npm”, “start”]
+}
+
+docker build -t ”webserver” . --> To build the webserver by installing all the required files based on the commands placed on Dockerfile.
+docker run -it webserver --> To run the Dockerfile in local.
+docker run -it -p 80:80 webserver --> To run the Dockerfile in Docker.
+
+To know whether the file is running or not, open chrome and type its ip:port. Then it displays our webserver page.

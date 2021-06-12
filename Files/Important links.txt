@@ -1,0 +1,35 @@
+Code:
+https://github.com/tatumio/tatum-js/blob/master/src/wallet/address.ts#L642
+
+Tatum doc:
+https://tatum.io/apidoc
+
+Tatum KMS:
+https://github.com/tatumio/tatum-kms
+
+Tokens List:
+https://github.com/MyEtherWallet/etherwallet/blob/mercury/app/scripts/tokens/ethTokens.json
+
+DDKoin:
+https://github.com/AraiEzzra/DDK.INSTALL
+https://github.com/AraiEzzra/DDK.REST.API.CLIENT
+
+ETH Txn fee Calc:
+https://ethgasstation.info/calculatorTxV.php
+(or)
+(gasLimit * gasPrice) / 1000000000
+
+CoinBox Finance:
+https://coinbox.gitbook.io/coinbox-1/help-center/untitled/important-links-and-social-media
+
+API to convert USD to BTC:
+https://blockchain.info/tobtc?currency=INR&value=5000000
+
+API to convert BTC to USD :
+https://free.currconv.com/api/v7/convert?q=BTC_USD&compact=ultra&apiKey=485dfc3a4779194421da
+
+Coinmarketcap:
+Email: coinboxfinance@gmail.com
+Password: azsxdcfv12A
+X-CMC_PRO_API_KEY: e5573ef0-403b-470f-8d7b-ac2fb50608af
+API: https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
