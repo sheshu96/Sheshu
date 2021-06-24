@@ -12,7 +12,7 @@ Server setup
 4. Install ngnix
 	sudo apt update
 	sudo apt install ngnix
-5. Install the required environment
+5. Install the required environment (Ex: Docker, NodeJS, etc...)
 6. Clone the code into server from GitLab
 7. To open the files
 	sudo nano {filename}
