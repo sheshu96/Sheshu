@@ -5,9 +5,23 @@ pwd:ddKoin%c2021.com
 User: DDKoin.com
 Password: VnYKV8a32hzSHZFh
 
+DigitalOcean server details:
+Login Email : accdigitalocean@gmail.com
+Password : Azsxdcfv@12 (same password for email)
+
+Name chip
+Username : araiezzra
+Password : Gyar!_Z5WcCz&6j
+
+
 Coinbox-wallet database details:
 Host:192.46.215.173
 Port:1433
 DB-name: CoinBoxWalletDev
 Username: CoinBoxWallet
 Password: CoinBoxWallet$2021
+
+
+Tatum login credentials:
+Username : coinboxfinance@gmail.com
+Password: azsxdcfv12A!
