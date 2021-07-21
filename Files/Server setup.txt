@@ -28,3 +28,8 @@ Server setup
 	
 
 	
+	
+Server commands
+-> pm2  restart 1
+-> pm2 log
+-> pm2 restart all
