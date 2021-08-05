@@ -33,7 +33,4 @@ API to convert BTC to USD :
 https://free.currconv.com/api/v7/convert?q=BTC_USD&compact=ultra&apiKey=485dfc3a4779194421da
 
 Coinmarketcap:
-Email: coinboxfinance@gmail.com
-Password: azsxdcfv12A
-X-CMC_PRO_API_KEY: e5573ef0-403b-470f-8d7b-ac2fb50608af
 API: https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
