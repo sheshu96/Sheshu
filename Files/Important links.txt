@@ -9,6 +9,10 @@ https://github.com/tatumio/tatum-kms
 
 Tokens List:
 https://github.com/MyEtherWallet/etherwallet/blob/mercury/app/scripts/tokens/ethTokens.json
+https://github.com/trustwallet/assets
+
+Use GitHub link as API:
+https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x0000000000085d4780B73119b644AE5ecd22b376/info.json
 
 DDKoin:
 https://github.com/AraiEzzra/DDK.INSTALL
