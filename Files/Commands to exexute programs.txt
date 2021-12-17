@@ -50,3 +50,7 @@ nest g mo name
 ReactJS:
 npm install -g create-react-app
 npx create-react-app projectname
+
+React-native:
+npm install -g create-react-native-app
+create-react-native-app ProjectName
